@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" translate="no" class="notranslate">
 <head>
 <meta charset="UTF-8">
+<meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Memorable Yearbook - Đào Trọng Hải</title>
 
@@ -98,7 +99,7 @@ body {
     to { opacity: 1; transform: scale(1.5); }
 }
 
-/* SAO BĂNG */
+/* SAO BĂNG: CHỚP NHỎ -> BÙNG SÁNG -> TẮT DẦN, BAY CHÉO PHẢI SANG TRÁI */
 .shooting {
     position: absolute;
     width: var(--shoot-length, 230px);
@@ -118,7 +119,6 @@ body {
     will-change: transform, opacity, filter;
     animation: meteorFlight var(--shoot-duration, 2.1s) linear forwards;
 }
-
 .shooting::before {
     content: "";
     position: absolute;
@@ -133,7 +133,6 @@ body {
     box-shadow: 0 0 3px 1px #fff, 0 0 8px 3px rgba(255,239,190,.7);
     animation: meteorCore var(--shoot-duration, 2.1s) linear forwards;
 }
-
 .shooting::after {
     content: "";
     position: absolute;
@@ -149,6 +148,8 @@ body {
     animation: meteorGlow var(--shoot-duration, 2.1s) linear forwards;
 }
 
+/* Vệt sáng không trượt đều: chấm sáng lóe lên, đuôi hình thành,
+   đạt cực sáng rồi co lại và tắt dần trước khi ra khỏi khung hình. */
 @keyframes meteorFlight {
     0% {
         opacity: 0;
@@ -181,14 +182,12 @@ body {
         filter: blur(1.2px);
     }
 }
-
 @keyframes meteorCore {
     0%, 5% { opacity: .08; transform: translateY(-50%) scale(.45); }
     28%, 55% { opacity: 1; transform: translateY(-50%) scale(1.45); box-shadow: 0 0 7px 3px #fff, 0 0 18px 8px rgba(255,239,190,1), 0 0 35px 13px rgba(255,194,105,.65); }
     78% { opacity: .62; transform: translateY(-50%) scale(.9); }
     100% { opacity: 0; transform: translateY(-50%) scale(.12); }
 }
-
 @keyframes meteorGlow {
     0%, 8% { opacity: 0; }
     35%, 55% { opacity: .9; }
@@ -217,7 +216,9 @@ body {
     }
 }
 
-/* ẢNH ĐÀO TRỌNG HẢI BAY */
+/* =========================
+   ẢNH ĐÀO TRỌNG HẢI BAY
+========================= */
 
 .floating-face {
     position: fixed;
@@ -238,7 +239,9 @@ body {
     to { transform: translateY(5px) rotate(8deg) scale(1.03); }
 }
 
-/* MÀN HÌNH PHONG BÌ */
+/* =========================
+   MÀN HÌNH PHONG BÌ
+========================= */
 
 #envelopeScreen {
     position: relative;
@@ -306,6 +309,8 @@ body {
     perspective: 900px;
 }
 
+/* HỌA TIẾT VÂN GIẤY */
+
 .envelope::before {
     content: "";
     position: absolute;
@@ -321,6 +326,8 @@ body {
         );
 }
 
+/* ĐƯỜNG GẤP PHONG BÌ */
+
 .envelope::after {
     content: "";
     position: absolute;
@@ -330,6 +337,8 @@ body {
         linear-gradient(215deg, transparent 49.8%, #b18b58 50%, transparent 50.5%);
     z-index: 1;
 }
+
+/* NẮP THƯ */
 
 .flap {
     position: absolute;
@@ -343,6 +352,8 @@ body {
     filter: drop-shadow(0 5px 5px #8b6038);
 }
 
+/* DÂY KIM TUYẾN */
+
 .gold-string {
     position: absolute;
     left: 0;
@@ -353,6 +364,8 @@ body {
     box-shadow: 0 0 6px #d4aa65;
     z-index: 4;
 }
+
+/* SÁP NIÊM PHONG */
 
 .seal {
     position: absolute;
@@ -424,6 +437,8 @@ body {
     text-align: center;
 }
 
+/* HOA TRANG TRÍ */
+
 .flower {
     position: absolute;
     z-index: 5;
@@ -444,7 +459,9 @@ body {
     transform: rotate(30deg);
 }
 
-/* MÀN HÌNH DR. HẢI */
+/* =========================
+   MÀN HÌNH DR. HẢI
+========================= */
 
 #doctorIntro {
     position: fixed;
@@ -562,7 +579,9 @@ body {
     100% { transform: scale(2.5) rotate(360deg); opacity: 0; }
 }
 
-/* NỘI DUNG THIỆP */
+/* =========================
+   NỘI DUNG THIỆP
+========================= */
 
 #mainContent {
     display: none;
@@ -820,7 +839,9 @@ textarea {
     cursor: pointer;
 }
 
-/* CONTACT INFORMATION */
+/* =========================
+   CONTACT INFORMATION
+========================= */
 
 .contact-section {
     max-width: 760px;
@@ -930,8 +951,8 @@ textarea {
     box-shadow: 0 0 25px #e9c87988;
 }
 
-/* TƯỜNG LỜI NHẮN CÔNG KHAI */
 
+/* TƯỜNG LỜI NHẮN CÔNG KHAI */
 .guestbook-section {
     max-width: 700px;
     margin: 55px auto 35px;
@@ -941,7 +962,6 @@ textarea {
     background: linear-gradient(145deg, #38281988, #17100dcc);
     box-shadow: 0 0 28px #d5a95518;
 }
-
 .guestbook-title {
     color: #f0d18d;
     font-size: 24px;
@@ -949,23 +969,18 @@ textarea {
     font-style: italic;
     margin-bottom: 12px;
 }
-
 .guestbook-intro {
     color: #d9c9ac;
     font: 13px/1.8 Arial, sans-serif;
     margin-bottom: 22px;
 }
-
 .guestbook-form { text-align: left; }
-
 .guestbook-form input, .guestbook-form textarea {
     display: block;
     margin-bottom: 12px;
     font-family: Arial, sans-serif;
 }
-
 .guestbook-form textarea { min-height: 100px; }
-
 .guestbook-form button {
     width: 100%;
     padding: 14px;
@@ -977,23 +992,19 @@ textarea {
     letter-spacing: 2px;
     cursor: pointer;
 }
-
 .guestbook-form button:disabled { opacity: .6; cursor: wait; }
-
 #guestbookStatus {
     min-height: 22px;
     margin-top: 12px;
     color: #f0d18d;
     font: 12px/1.6 Arial, sans-serif;
 }
-
 .guestbook-list {
     display: grid;
     gap: 13px;
     margin-top: 25px;
     text-align: left;
 }
-
 .guest-message {
     padding: 17px 18px;
     border: 1px solid #8e7148;
@@ -1001,7 +1012,6 @@ textarea {
     background: #0e0b08aa;
     overflow-wrap: anywhere;
 }
-
 .guest-message-head {
     display: flex;
     justify-content: space-between;
@@ -1009,23 +1019,19 @@ textarea {
     align-items: baseline;
     margin-bottom: 9px;
 }
-
 .guest-message-name { color: #f2d69c; font-size: 16px; }
 .guest-message-date { color: #aa9879; font: 10px Arial, sans-serif; }
-
 .guest-message-text {
     color: #e5d8c1;
     font: 13px/1.8 Arial, sans-serif;
     white-space: pre-wrap;
 }
-
 .guestbook-empty {
     color: #bfae8e;
     text-align: center;
     font: 13px/1.8 Arial, sans-serif;
     padding: 18px 5px;
 }
-
 @media(max-width:600px) {
     .guestbook-section { padding: 22px 16px; }
     .guest-message-head { flex-direction: column; gap: 5px; }
@@ -1073,25 +1079,24 @@ textarea {
     .flower { font-size: 38px; }
 }
 
-/* TYPOGRAPHY POLISH: IVORY / PEARL */
 
+/* =========================
+   TYPOGRAPHY POLISH: IVORY / PEARL
+   Gold metallic stays on frames, borders and ornaments
+========================= */
 body { color: #e9e8e4; }
-
 .small-heading,
 .open-text,
 .school,
 .ornament { color: #e8e4dc; text-shadow: none; }
-
 .doctor-title {
     background: linear-gradient(100deg, #aeb5bd, #fffdf5 45%, #c9c5bb 72%, #f8f5ec);
     background-clip: text;
     -webkit-background-clip: text;
     text-shadow: 0 0 18px rgba(235,239,244,.22);
 }
-
 .doctor-subtitle { color: #c9cdd2; }
 #mainContent { color: #e8e6e1; }
-
 .top-label,
 .class-info,
 .invited,
@@ -1100,7 +1105,6 @@ body { color: #e9e8e4; }
 .contact-title,
 .guestbook-title,
 #guestbookStatus { color: #c9cdd2; text-shadow: none; }
-
 .gold-text {
     background: linear-gradient(100deg, #bfc4ca, #fffdf7, #d9d8d2, #f7f4ec, #bfc4ca);
     background-size: 220% auto;
@@ -1109,7 +1113,6 @@ body { color: #e9e8e4; }
     -webkit-background-clip: text;
     text-shadow: 0 0 16px rgba(235,239,244,.12);
 }
-
 .yearbook { color: #d9dce0; }
 .name { color: #f2f0eb; text-shadow: 0 2px 18px rgba(255,255,255,.10); }
 .quote { color: #d8d8d5; }
@@ -1126,11 +1129,13 @@ body { color: #e9e8e4; }
 .guestbook-empty { color: #c3c6ca; }
 .footer { color: #bfc5cc; }
 .music-button { color: #e8e8e5; }
-    /* =========================
-   SIGNATURE LUXURY UPGRADE
-   CINEMATIC PEARL & GOLD
-========================= */
 
+
+
+/* =========================
+   SIGNATURE LUXURY UPGRADE — CINEMATIC PEARL & GOLD
+   Giữ chữ màu ngọc trai; vàng kim chỉ nằm ở khung, viền và ánh sáng
+========================= */
 :root {
     --foil: #d9b66e;
     --foil-bright: #fff0bd;
@@ -1156,7 +1161,6 @@ body::after {
     z-index: 1;
     pointer-events: none;
 }
-
 body::before {
     opacity: .42;
     background:
@@ -1164,7 +1168,6 @@ body::before {
         radial-gradient(ellipse at 50% 0%, transparent 30%, rgba(0,0,0,.5) 100%);
     mix-blend-mode: screen;
 }
-
 body::after {
     inset: 12px;
     border: 1px solid rgba(220,187,119,.18);
@@ -1179,7 +1182,6 @@ body::after {
     filter: blur(42px);
     animation: luxuryBeam 16s ease-in-out infinite alternate;
 }
-
 @keyframes luxuryBeam {
     from { transform: translate3d(-2%,0,0) rotate(8deg); opacity: .35; }
     to { transform: translate3d(13%,3%,0) rotate(14deg); opacity: .8; }
@@ -1189,7 +1191,6 @@ body::after {
     isolation: isolate;
     background: radial-gradient(ellipse at 50% 48%, rgba(221,185,113,.075), transparent 48%);
 }
-
 .small-heading,
 .school,
 .open-text,
@@ -1203,12 +1204,9 @@ body::after {
     color: #d9dce1;
     text-shadow: 0 0 18px rgba(219,225,235,.12);
 }
-
 .small-heading,
 .top-label,
-.contact-title {
-    letter-spacing: .42em;
-}
+.contact-title { letter-spacing: .42em; }
 
 .envelope {
     border: 1px solid #f0d99e;
@@ -1223,17 +1221,14 @@ body::after {
         inset 0 0 42px rgba(255,255,255,.52);
     transition: transform .9s cubic-bezier(.2,.8,.2,1), box-shadow .9s ease, opacity 1s;
 }
-
 .envelope:hover {
     transform: translateY(-7px) scale(1.018);
     box-shadow: 0 0 0 7px rgba(213,177,105,.12), 0 28px 95px rgba(0,0,0,.72), 0 0 75px rgba(222,183,107,.32), inset 0 0 42px rgba(255,255,255,.6);
 }
-
 .seal {
     border-color: #e8c984;
     box-shadow: 0 0 0 5px rgba(226,190,120,.14), 0 0 25px rgba(165,55,54,.65), 0 8px 20px #17090b;
 }
-
 .open-text {
     font-family: Arial, sans-serif;
     font-size: 12px;
@@ -1241,7 +1236,6 @@ body::after {
     text-transform: uppercase;
     animation: openPulse 2.8s ease-in-out infinite;
 }
-
 @keyframes openPulse {
     0%,100% { text-shadow: 0 0 8px rgba(255,255,255,.18); opacity: .78; }
     50% { text-shadow: 0 0 18px rgba(255,255,255,.65), 0 0 34px rgba(222,185,113,.28); opacity: 1; }
@@ -1253,24 +1247,18 @@ body::after {
         radial-gradient(circle at center, rgba(66,77,96,.45), transparent 48%),
         #05070c;
 }
-
 .doctor-ring {
     width: min(72vw, 440px);
     height: min(72vw, 440px);
     border: 1px solid rgba(237,210,153,.78);
     box-shadow: 0 0 20px rgba(224,187,111,.35), inset 0 0 30px rgba(224,187,111,.12), 0 0 100px rgba(224,187,111,.15);
 }
-
 .doctor-title {
     letter-spacing: .16em;
     font-weight: 500;
     text-shadow: 0 0 28px rgba(255,255,255,.25), 0 0 70px rgba(220,185,113,.18);
 }
-
-.doctor-subtitle {
-    color: #d9dce1;
-    letter-spacing: .5em;
-}
+.doctor-subtitle { color: #d9dce1; letter-spacing: .5em; }
 
 #mainContent {
     width: min(980px, 94%);
@@ -1286,7 +1274,6 @@ body::after {
     box-shadow: 0 35px 110px rgba(0,0,0,.72), 0 0 65px rgba(214,177,105,.12), inset 0 1px 0 rgba(255,255,255,.12);
     isolation: isolate;
 }
-
 #mainContent::before,
 #mainContent::after {
     content: "✦";
@@ -1297,7 +1284,6 @@ body::after {
     text-shadow: 0 0 18px rgba(225,190,119,.55);
     pointer-events: none;
 }
-
 #mainContent::before { top: 20px; left: 22px; }
 #mainContent::after { right: 22px; bottom: 20px; }
 
@@ -1308,19 +1294,16 @@ h1 {
     line-height: 1.04;
     text-shadow: 0 8px 35px rgba(255,255,255,.09);
 }
-
 .gold-text {
     background: linear-gradient(100deg, #aeb5c0 0%, #fffefa 23%, #d8dce2 43%, #fffefa 59%, #b9c0ca 78%, #f8f6ef 100%);
     background-size: 260% auto;
     animation: pearlSweep 8s ease-in-out infinite;
     filter: drop-shadow(0 5px 20px rgba(230,234,241,.1));
 }
-
 @keyframes pearlSweep {
     0%,100% { background-position: 0% center; }
     50% { background-position: 100% center; }
 }
-
 .yearbook {
     color: #d9dce1;
     font-family: Arial, sans-serif;
@@ -1328,48 +1311,33 @@ h1 {
     letter-spacing: .58em;
     margin-top: 12px;
 }
-
 .name {
     color: #fbfaf6;
     font-size: clamp(27px, 5.5vw, 47px);
     letter-spacing: .12em;
     text-shadow: 0 0 25px rgba(255,255,255,.14), 0 8px 35px rgba(0,0,0,.55);
 }
-
 .quote {
     color: #d9dce1;
     font-size: clamp(16px, 2vw, 19px);
     line-height: 2.05;
 }
-
 .line {
     width: 160px;
     height: 1px;
     background: linear-gradient(90deg, transparent, #b88c49 20%, #fff0c3 50%, #b88c49 80%, transparent);
     box-shadow: 0 0 16px rgba(227,190,117,.45);
 }
-
-.ornament {
-    color: var(--foil-bright);
-    filter: drop-shadow(0 0 8px rgba(222,184,112,.55));
-}
-
+.ornament { color: var(--foil-bright); filter: drop-shadow(0 0 8px rgba(222,184,112,.55)); }
 .ornament::before,
-.ornament::after {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #9d7944, #f3d99e);
-}
-
-.ornament::after {
-    background: linear-gradient(90deg, #f3d99e, #9d7944, transparent);
-}
+.ornament::after { height: 1px; background: linear-gradient(90deg, transparent, #9d7944, #f3d99e); }
+.ornament::after { background: linear-gradient(90deg, #f3d99e, #9d7944, transparent); }
 
 .details {
     border-top: 1px solid rgba(218,183,112,.58);
     border-bottom: 1px solid rgba(218,183,112,.58);
     background: linear-gradient(90deg, transparent, rgba(219,184,113,.055), transparent);
 }
-
 .detail { border-right-color: rgba(218,183,112,.28); }
 .detail small { color: #c9cdd3; letter-spacing: .32em; }
 .detail h3 { color: #f4f1eb; font-size: 20px; letter-spacing: .035em; }
@@ -1386,7 +1354,6 @@ h1 {
         linear-gradient(145deg, rgba(31,34,40,.88), rgba(9,11,16,.94));
     box-shadow: 0 20px 50px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.08), 0 0 26px rgba(218,183,112,.055);
 }
-
 .countdown::before,
 .invitation-box::before,
 .guestbook-section::before,
@@ -1397,38 +1364,23 @@ h1 {
     border: 1px solid rgba(222,190,128,.13);
     pointer-events: none;
 }
-
 .countdown-title,
 .contact-title,
 .guestbook-title { color: #e1e3e6; }
-
-.timer strong {
-    color: #fbfaf6;
-    text-shadow: 0 0 20px rgba(255,255,255,.13);
-}
-
+.timer strong { color: #fbfaf6; text-shadow: 0 0 20px rgba(255,255,255,.13); }
 .timer span { color: #bfc4cc; }
 .invitation-box h2 { color: #f1eee8; }
-
 .invitation-box p,
 .guestbook-intro { color: #cdd0d5; }
-
 .invitation-box h3 { color: #d8bc82; }
 label { color: #d7bd8b; }
-
 input, textarea {
     border: 1px solid rgba(203,177,127,.42);
     border-radius: 2px;
     background: rgba(5,7,11,.8);
     color: #f4f1eb;
 }
-
-input:focus,
-textarea:focus {
-    border-color: #f0d69e;
-    box-shadow: 0 0 0 3px rgba(220,185,113,.1);
-}
-
+input:focus, textarea:focus { border-color: #f0d69e; box-shadow: 0 0 0 3px rgba(220,185,113,.1); }
 .submit,
 .guestbook-form button {
     border: 1px solid #f4dfad;
@@ -1440,40 +1392,25 @@ textarea:focus {
     box-shadow: 0 8px 24px rgba(0,0,0,.3), 0 0 24px rgba(221,185,113,.15);
     transition: background-position .6s ease, transform .3s ease, box-shadow .3s ease;
 }
-
 .submit:hover,
-.guestbook-form button:hover {
-    background-position: 100% 0;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0,0,0,.4), 0 0 30px rgba(221,185,113,.24);
-}
+.guestbook-form button:hover { background-position: 100% 0; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,.4), 0 0 30px rgba(221,185,113,.24); }
 
-.contact-section {
-    max-width: 820px;
-    padding: 38px 30px;
-}
-
+.contact-section { max-width: 820px; padding: 38px 30px; }
 .contact-card {
     min-height: 174px;
     border-radius: 3px;
     border-color: rgba(214,180,112,.48);
     background: linear-gradient(150deg, rgba(255,255,255,.055), rgba(12,14,19,.94) 58%);
 }
-
 .contact-card:hover {
     transform: translateY(-9px) scale(1.018);
     border-color: #f5dfa9;
     box-shadow: 0 18px 38px rgba(0,0,0,.42), 0 0 35px rgba(220,184,111,.2);
 }
-
 .contact-icon { color: #e5e7eb; }
 .contact-card strong { color: #f4f1eb; letter-spacing: .24em; }
 .contact-card small { color: #bfc4cc; }
-
-.contact-avatar {
-    border-color: #e0c181;
-    box-shadow: 0 0 0 5px rgba(214,173,98,.09), 0 0 28px rgba(225,184,103,.2);
-}
+.contact-avatar { border-color: #e0c181; box-shadow: 0 0 0 5px rgba(214,173,98,.09), 0 0 28px rgba(225,184,103,.2); }
 
 .music-button {
     border: 1px solid rgba(237,211,157,.78);
@@ -1482,17 +1419,13 @@ textarea:focus {
     box-shadow: 0 8px 28px rgba(0,0,0,.4), 0 0 22px rgba(221,185,113,.13);
     backdrop-filter: blur(12px);
 }
-
-.music-button:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,.5), 0 0 30px rgba(221,185,113,.28);
-}
+.music-button:hover { box-shadow: 0 8px 32px rgba(0,0,0,.5), 0 0 30px rgba(221,185,113,.28); }
 
 .guest-message {
     border-radius: 3px;
     border-color: rgba(215,181,111,.32);
     background: rgba(5,7,11,.72);
 }
-
 .guest-message-name { color: #f1eee8; }
 .guest-message-text { color: #d3d6dc; }
 .guestbook-title { font-size: clamp(21px, 3vw, 26px); }
@@ -1506,43 +1439,40 @@ textarea:focus {
     .contact-section { padding: 28px 16px; }
     .contact-card { min-height: 150px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
     .light-beam, .gold-text, .open-text { animation: none !important; }
     .envelope, .contact-card, .submit, .guestbook-form button { transition: none !important; }
 }
 
+
+
 /* =========================
    SOFT LUXURY FINISH
+   Làm dịu tổng thể, giữ nguyên bố cục và hiệu ứng gốc
 ========================= */
-
 html { scroll-behavior: smooth; }
-
 body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
-
 body::after {
     border-radius: 14px;
     box-shadow: inset 0 0 24px rgba(221,184,111,.025), 0 0 22px rgba(221,184,111,.025);
 }
-
-.light-beam { opacity: .42; filter: blur(58px); }
-
+.light-beam {
+    opacity: .42;
+    filter: blur(58px);
+}
 .star {
     box-shadow: 0 0 5px 1px rgba(217,169,81,.38), 0 0 12px rgba(255,239,190,.22);
 }
-
 .star::before, .star::after {
     opacity: 0;
     filter: blur(.35px);
 }
-
 #envelopeScreen {
     background: radial-gradient(ellipse at 50% 48%, rgba(221,185,113,.045), transparent 52%);
 }
-
 .envelope {
     border-radius: 9px;
     box-shadow:
@@ -1553,7 +1483,6 @@ body::after {
     transition: transform 1.15s cubic-bezier(.2,.72,.22,1),
                 box-shadow 1.15s ease, opacity 1.1s ease;
 }
-
 .envelope:hover {
     transform: translateY(-4px) scale(1.008);
     box-shadow:
@@ -1562,22 +1491,14 @@ body::after {
         0 0 48px rgba(222,183,107,.19),
         inset 0 0 34px rgba(255,255,255,.46);
 }
-
 .seal { transition: transform .8s ease, box-shadow .8s ease; }
 .open-text { animation-duration: 4s; }
-
 #doctorIntro.show { animation: softIntro .9s ease both; }
-
 @keyframes softIntro {
     0% { opacity: 0; filter: brightness(1.35); }
     100% { opacity: 1; filter: brightness(1); }
 }
-
-.doctor-title,
-.doctor-subtitle {
-    text-shadow: 0 0 18px rgba(255,255,255,.16);
-}
-
+.doctor-title, .doctor-subtitle { text-shadow: 0 0 18px rgba(255,255,255,.16); }
 #mainContent {
     border-radius: 13px;
     border-color: rgba(222,190,128,.58);
@@ -1586,23 +1507,16 @@ body::after {
                 inset 0 1px 0 rgba(255,255,255,.09);
     animation: softAppear 1.65s cubic-bezier(.2,.72,.22,1) both;
 }
-
 @keyframes softAppear {
     from { opacity: 0; transform: translateY(24px); filter: blur(3px); }
     to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
-
 .gold-text {
     animation-duration: 12s;
     filter: drop-shadow(0 3px 13px rgba(230,234,241,.07));
 }
-
 .line { box-shadow: 0 0 9px rgba(227,190,117,.25); }
-
-.countdown,
-.invitation-box,
-.guestbook-section,
-.contact-section {
+.countdown, .invitation-box, .guestbook-section, .contact-section {
     border-radius: 14px;
     border-color: rgba(215,181,111,.42);
     background:
@@ -1612,53 +1526,36 @@ body::after {
                 inset 0 1px 0 rgba(255,255,255,.055);
     backdrop-filter: blur(9px);
 }
-
-.countdown::before,
-.invitation-box::before,
-.guestbook-section::before,
-.contact-section::before {
+.countdown::before, .invitation-box::before,
+.guestbook-section::before, .contact-section::before {
     border-radius: 9px;
     border-color: rgba(222,190,128,.10);
 }
-
-.contact-card,
-.guest-message {
+.contact-card, .guest-message {
     border-radius: 11px;
     transition: transform .55s cubic-bezier(.2,.72,.22,1),
                 border-color .55s ease, box-shadow .55s ease,
                 background .55s ease;
 }
-
 .contact-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 28px rgba(0,0,0,.32), 0 0 22px rgba(220,184,111,.12);
 }
-
 .contact-avatar {
     border-width: 1.5px;
     box-shadow: 0 0 0 4px rgba(214,173,98,.07), 0 0 18px rgba(225,184,103,.17);
 }
-
 input, textarea {
     border-radius: 8px;
     transition: border-color .35s ease, box-shadow .35s ease, background .35s ease;
 }
-
-.submit,
-.guestbook-form button,
-.music-button {
+.submit, .guestbook-form button, .music-button {
     border-radius: 8px;
     transition: transform .45s cubic-bezier(.2,.72,.22,1),
                 box-shadow .45s ease, background-position .7s ease;
 }
-
-.submit:hover,
-.guestbook-form button:hover {
-    transform: translateY(-1px);
-}
-
+.submit:hover, .guestbook-form button:hover { transform: translateY(-1px); }
 .music-button { border-radius: 30px; }
-
 .floating-face {
     width: 82px;
     max-height: 116px;
@@ -1668,31 +1565,22 @@ input, textarea {
                 left 8.2s cubic-bezier(.42,0,.22,1);
     animation: faceDrift 7s ease-in-out infinite alternate;
 }
-
 @keyframes faceDrift {
     from { transform: translate3d(0,-4px,0) rotate(-4deg) scale(.99); }
     to { transform: translate3d(0,4px,0) rotate(4deg) scale(1.01); }
 }
-
 .dust { text-shadow: 0 0 7px rgba(255,223,138,.65); }
-
 @media (max-width: 600px) {
     .floating-face { width: 66px; max-height: 92px; }
     #mainContent { border-radius: 10px; }
-    .countdown,
-    .invitation-box,
-    .guestbook-section,
-    .contact-section {
-        border-radius: 11px;
-    }
+    .countdown, .invitation-box, .guestbook-section, .contact-section { border-radius: 11px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; }
 }
 
-/* FIX: gradient ánh ngọc trai chỉ nằm trên nét chữ */
 
+/* FIX: gradient ánh ngọc trai chỉ nằm trên nét chữ, không tạo thanh chữ nhật */
 .gold-text {
     color: transparent !important;
     -webkit-text-fill-color: transparent;
@@ -1701,8 +1589,8 @@ input, textarea {
     background-repeat: no-repeat;
 }
 
-/* TYPOGRAPHY UPGRADE */
 
+/* TYPOGRAPHY UPGRADE – sang trọng, rõ nét và có chiều sâu */
 .top-label {
     font-family: Georgia, "Times New Roman", serif !important;
     font-size: 10px !important;
@@ -1758,8 +1646,7 @@ h1.gold-text {
     to { background-position: 100% center; }
 }
 
-/* ẢNH BAY ĐƯỢC ĐIỀU KHIỂN BẰNG JAVASCRIPT */
-
+/* Chuyển động được điều khiển bằng requestAnimationFrame */
 .floating-face {
     transition: none !important;
     animation: none !important;
@@ -1771,6 +1658,7 @@ h1.gold-text {
     object-fit: contain;
 }
 
+/* Ảnh chưa có: vẫn giữ khung biểu tượng ảnh lỗi để nó tiếp tục bay */
 .floating-face.image-missing {
     display: block !important;
     width: 82px !important;
@@ -1790,13 +1678,13 @@ h1.gold-text {
     .yearbook.gold-text { letter-spacing: 6px !important; }
 }
 
-/* ===== CAN CHINH VA SUA FONT TUONG LOI NHAN ===== */
 
+
+/* ===== CAN CHINH VA SUA FONT TUONG LOI NHAN ===== */
 .guestbook-section {
     text-align: center;
     font-family: Arial, "Segoe UI", sans-serif;
 }
-
 .guestbook-title {
     display: block;
     width: 100%;
@@ -1808,8 +1696,10 @@ h1.gold-text {
     word-spacing: normal !important;
     line-height: 1.6;
     overflow-wrap: break-word;
+    font-kerning: normal;
+    font-variant-ligatures: normal;
+    text-rendering: optimizeLegibility;
 }
-
 .guestbook-intro {
     text-align: center !important;
     font-family: Arial, "Segoe UI", sans-serif !important;
@@ -1820,18 +1710,15 @@ h1.gold-text {
     line-height: 1.9;
     overflow-wrap: break-word;
 }
-
 .guestbook-form {
     text-align: left !important;
     font-family: Arial, "Segoe UI", sans-serif !important;
 }
-
 .guestbook-form label {
     text-align: left !important;
     font-family: Arial, "Segoe UI", sans-serif !important;
     letter-spacing: 3px;
 }
-
 .guestbook-form input,
 .guestbook-form textarea,
 .guestbook-form button,
@@ -1841,12 +1728,162 @@ h1.gold-text {
     letter-spacing: normal !important;
     word-spacing: normal !important;
 }
-
 .guest-message-text {
     line-height: 1.9;
     overflow-wrap: anywhere;
 }
-    </style>
+.guestbook-section,
+.guestbook-section * {
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    text-transform: none;
+}
+.guestbook-title {
+    font-family: Arial, "Segoe UI", sans-serif !important;
+    font-style: normal !important;
+    letter-spacing: 0 !important;
+}
+
+
+
+/* =========================
+   MẢNH GIẤY GẤP THÀNH MÁY BAY
+========================= */
+.paper-sheet {
+    position: relative;
+    width: min(260px, 68vw);
+    height: 174px;
+    display: block;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,.75);
+    border-radius: 3px;
+    background: linear-gradient(135deg, #fffdf4 0%, #f3e8cf 58%, #d9c49e 100%);
+    box-shadow: 0 0 0 5px rgba(213,177,105,.08), 0 20px 65px rgba(0,0,0,.58), 0 0 38px rgba(230,195,128,.22);
+    transform-origin: 50% 50%;
+    overflow: visible;
+    transition: box-shadow .35s ease;
+    z-index: 6;
+    user-select: none;
+}
+.paper-sheet:hover { box-shadow: 0 0 0 7px rgba(213,177,105,.13), 0 25px 75px rgba(0,0,0,.65), 0 0 50px rgba(230,195,128,.3); }
+.paper-sheet::before {
+    content: ""; position: absolute; inset: 13px;
+    border: 1px solid rgba(151,119,69,.24);
+    background: repeating-linear-gradient(to bottom, transparent 0 24px, rgba(151,119,69,.18) 25px, transparent 26px);
+}
+.paper-corner {
+    position: absolute; top: 0; right: 0; width: 42px; height: 42px; z-index: 2;
+    background: linear-gradient(225deg, #d8c39d 0 49%, #fff9e9 50% 100%);
+    box-shadow: -2px 2px 5px rgba(80,55,25,.12);
+}
+.paper-note { position: absolute; left: 25px; top: 57px; color: #947443; font: 11px Arial,sans-serif; letter-spacing: 4px; }
+.paper-star { position: absolute; right: 28px; bottom: 23px; color: #b48a4c; font-size: 22px; text-shadow: 0 0 12px #d6ad62; }
+.paper-rule { position: absolute; left: 25px; height: 1px; width: 62%; background: rgba(151,119,69,.25); }
+.rule-one { top: 91px; } .rule-two { top: 116px; width: 46%; }
+.paper-plane-visual {
+    position: absolute; left: 50%; top: 50%; width: 174px; height: 158px;
+    opacity: 0; visibility: hidden; transform: translate(-50%,-50%) scale(.2);
+    filter: drop-shadow(0 12px 10px rgba(0,0,0,.38)) drop-shadow(0 0 14px rgba(255,231,174,.65));
+}
+.paper-plane-visual svg { display:block; width:100%; height:100%; overflow:visible; }
+.paper-sheet.flying {
+    pointer-events: none;
+    animation: paperLaunchFlight 3s linear forwards;
+    will-change: transform, opacity, filter;
+    background: transparent; border-color: transparent; box-shadow: none;
+}
+.paper-sheet.flying::before,
+.paper-sheet.flying .paper-corner,
+.paper-sheet.flying .paper-note,
+.paper-sheet.flying .paper-star,
+.paper-sheet.flying .paper-rule { opacity: 0; }
+.paper-sheet.flying .paper-plane-visual {
+    visibility: visible;
+    animation: planeFoldAppear 3s linear forwards;
+}
+@keyframes planeFoldAppear {
+    0%, 12% { opacity:0; transform:translate(-50%,-50%) scale(.15) rotateX(75deg); }
+    19% { opacity:1; transform:translate(-50%,-50%) scale(.72) rotateX(0); }
+    100% { opacity:1; transform:translate(-50%,-50%) scale(.72) rotateX(0); }
+}
+/* Gấp giấy nhanh, phóng vút lên, lượn theo quỹ đạo cong rồi trở về tâm */
+@keyframes paperLaunchFlight {
+    0%   { transform:translate3d(0,0,0) rotate(0) scale(1); opacity:1; filter:none; }
+    10%  { transform:translate3d(0,0,0) rotateX(68deg) rotateZ(5deg) scale(.92); opacity:1; }
+    19%  { transform:translate3d(0,-2vh,0) rotate(-8deg) scale(.82); opacity:1; }
+    29%  { transform:translate3d(12vw,-17vh,0) rotate(24deg) scale(.72); opacity:1; }
+    42%  { transform:translate3d(34vw,-24vh,0) rotate(42deg) scale(.65); opacity:1; }
+    55%  { transform:translate3d(39vw,-4vh,0) rotate(105deg) scale(.61); opacity:1; }
+    68%  { transform:translate3d(17vw,17vh,0) rotate(157deg) scale(.57); opacity:1; }
+    80%  { transform:translate3d(-23vw,9vh,0) rotate(205deg) scale(.53); opacity:1; }
+    91%  { transform:translate3d(-17vw,-13vh,0) rotate(330deg) scale(.49); opacity:1; }
+    100% { transform:translate3d(0,-2vh,0) rotate(360deg) scale(.43); opacity:.98; filter:brightness(1.8) drop-shadow(0 0 25px #fff0c5); }
+}
+.paper-burst-flash {
+    position:absolute; left:50%; top:50%; width:24px; height:24px; border-radius:50%;
+    transform:translate(-50%,-50%); pointer-events:none; z-index:20;
+    background:#fffef0;
+    box-shadow:0 0 28px 15px #fff4ce, 0 0 85px 48px rgba(255,211,119,.95), 0 0 180px 90px rgba(214,173,98,.58);
+    animation: paperBombFlash .9s ease-out forwards;
+}
+.paper-burst-ring {
+    position:absolute; left:50%; top:50%; width:35px; height:35px; border:3px solid rgba(255,239,190,.95);
+    border-radius:50%; transform:translate(-50%,-50%); pointer-events:none; z-index:19;
+    box-shadow:0 0 24px rgba(255,221,151,.9), inset 0 0 18px rgba(255,221,151,.45);
+    animation: paperShockwave .95s cubic-bezier(.08,.62,.18,1) forwards;
+}
+@keyframes paperBombFlash {
+    0% { opacity:1; transform:translate(-50%,-50%) scale(.12); }
+    24% { opacity:1; transform:translate(-50%,-50%) scale(5); }
+    58% { opacity:.9; transform:translate(-50%,-50%) scale(10); }
+    100% { opacity:0; transform:translate(-50%,-50%) scale(16); }
+}
+@keyframes paperShockwave {
+    0% { opacity:1; transform:translate(-50%,-50%) scale(.2); border-width:8px; }
+    100% { opacity:0; transform:translate(-50%,-50%) scale(22); border-width:1px; }
+}
+.paper-burst-piece {
+    position:absolute; left:50%; top:50%; width:var(--piece-width,3px); height:var(--piece-height,18px);
+    border-radius:99px; background:linear-gradient(to bottom,#fffef0,#ffe0a0 55%,rgba(214,173,98,0));
+    box-shadow:0 0 12px 2px rgba(255,220,150,.95);
+    pointer-events:none; z-index:21;
+    animation: paperBurstFly var(--piece-duration,1s) cubic-bezier(.08,.72,.16,1) forwards;
+}
+@keyframes paperBurstFly {
+    0% { opacity:1; transform:translate(-50%,-50%) rotate(var(--piece-angle)) scale(.2); }
+    18% { opacity:1; }
+    100% { opacity:0; transform:translate(calc(-50% + var(--burst-x)),calc(-50% + var(--burst-y))) rotate(calc(var(--piece-angle) + 420deg)) scale(.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .paper-sheet.flying { animation-duration:3s; }
+}
+
+
+/* CHU: CHU NO, TEN XUAT HIEN NGAY VA BAY MEM MAI VAO TAM */
+#doctorIntro.show .doctor-title {
+    animation: doctorGlideIn 1.25s cubic-bezier(.16,.78,.22,1) both !important;
+    opacity: 1;
+}
+#doctorIntro.show .doctor-subtitle {
+    animation: doctorSubGlideIn 1.15s .18s cubic-bezier(.16,.78,.22,1) both !important;
+    opacity: 1;
+}
+@keyframes doctorGlideIn {
+    0% { opacity:0; transform:translate3d(0,46px,0) scale(.88); filter:blur(13px); letter-spacing:15px; }
+    65% { opacity:1; transform:translate3d(0,-4px,0) scale(1.035); filter:blur(0); }
+    100% { opacity:1; transform:translate3d(0,0,0) scale(1); filter:blur(0); letter-spacing:5px; }
+}
+@keyframes doctorSubGlideIn {
+    0% { opacity:0; transform:translate3d(0,22px,0); filter:blur(8px); }
+    100% { opacity:1; transform:translate3d(0,0,0); filter:blur(0); }
+}
+#doctorIntro.show .doctor-ring { animation: ringBloom .95s cubic-bezier(.16,.78,.22,1) both; }
+@keyframes ringBloom {
+    0% { opacity:0; transform:scale(.55); filter:blur(8px); }
+    100% { opacity:1; transform:scale(1); filter:blur(0); }
+}
+
+</style>
 </head>
 
 <body>
@@ -1856,7 +1893,7 @@ h1.gold-text {
 <div id="shootingStars"></div>
 <div id="cursorDust"></div>
 
-<!-- ẢNH HẢI -->
+<!-- ẢNH HẢI: FILE daotronghai.png -->
 <img
     src="daotronghai.png"
     class="floating-face"
@@ -1864,7 +1901,7 @@ h1.gold-text {
     alt="Ảnh Đào Trọng Hải chưa được thêm"
 >
 
-<!-- NHẠC NỀN -->
+<!-- NHẠC NỀN: FILE music.mp3 -->
 <audio id="backgroundMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -1883,22 +1920,27 @@ h1.gold-text {
 
     <div class="ornament"><span>✦</span></div>
 
-    <div class="envelope" id="envelope" onclick="openInvitation()">
-
-        <div class="flap"></div>
-        <div class="gold-string"></div>
-
-        <div class="seal">
-            <span>H</span>
-        </div>
-
-        <div class="flower one">✿</div>
-        <div class="flower two">✿</div>
-
+    <div class="paper-sheet" id="paperSheet" role="button" tabindex="0"
+         aria-label="Bấm để gấp mảnh giấy thành máy bay và bắt đầu thiệp"
+         onclick="openInvitation()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openInvitation();}">
+        <span class="paper-plane-visual" aria-hidden="true">
+            <svg viewBox="0 0 180 160" xmlns="http://www.w3.org/2000/svg">
+                <path d="M90 5 L171 151 L96 119 L90 155 L84 119 L9 151 Z" fill="#fff9e9" stroke="#c9ad7d" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M90 5 L90 155" fill="none" stroke="#b8955e" stroke-width="2" opacity=".85"/>
+                <path d="M90 5 L96 119 L171 151" fill="none" stroke="#d7c29c" stroke-width="1.5" opacity=".9"/>
+                <path d="M90 5 L84 119 L9 151" fill="none" stroke="#d7c29c" stroke-width="1.5" opacity=".9"/>
+                <path d="M90 5 L96 119 L90 155 L84 119 Z" fill="#ead9b8" opacity=".62"/>
+            </svg>
+        </span>
+        <span class="paper-corner"></span>
+        <span class="paper-rule rule-one"></span>
+        <span class="paper-rule rule-two"></span>
+        <span class="paper-note">A LITTLE NOTE</span>
+        <span class="paper-star">✦</span>
     </div>
 
     <div class="open-text" onclick="openInvitation()">
-        CHẠM ĐỂ MỞ THƯ MỜI ✦
+        CHẠM VÀO MẢNH GIẤY ĐỂ BẮT ĐẦU ✦
     </div>
 
     <div class="ornament"><span>✦</span></div>
@@ -1945,7 +1987,7 @@ h1.gold-text {
 
     <div class="invited">INVITED BY</div>
 
-    <div class="name gold-text" style :" margin: 25px>
+    <div class="name gold-text">
         ĐÀO TRỌNG HẢI
     </div>
 
@@ -2076,58 +2118,34 @@ h1.gold-text {
 
     </div>
 
+
     <!-- TƯỜNG LỜI NHẮN CÔNG KHAI -->
-
     <section class="guestbook-section" id="guestbook">
-
-        <h2 class="guestbook-title">
-            Những lời nhắn gửi đến Hải ✦
-        </h2>
-
+        <h2 class="guestbook-title">Những lời nhắn gửi đến Hải ✦</h2>
         <p class="guestbook-intro">
             Để lại một lời chúc hoặc một kỷ niệm nhé.
             Lời nhắn sẽ được lưu trên mạng để mọi người cùng đọc.
         </p>
 
         <form class="guestbook-form" id="guestbookForm">
-
             <label for="guestName">TÊN CỦA BẠN</label>
-
-            <input
-                id="guestName"
-                type="text"
-                maxlength="40"
-                placeholder="Nhập tên của bạn..."
-                required
-            >
+            <input id="guestName" type="text" maxlength="40"
+                   placeholder="Nhập tên của bạn..." required>
 
             <label for="guestMessage">LỜI NHẮN</label>
+            <textarea id="guestMessage" maxlength="500"
+                      placeholder="Viết điều bạn muốn gửi đến Hải..." required></textarea>
 
-            <textarea
-                id="guestMessage"
-                maxlength="500"
-                placeholder="Viết điều bạn muốn gửi đến Hải..."
-                required
-            ></textarea>
-
-            <button type="submit" id="guestbookSubmit">
-                GỬI LỜI NHẮN ✦
-            </button>
-
+            <button type="submit" id="guestbookSubmit">GỬI LỜI NHẮN ✦</button>
             <div id="guestbookStatus" role="status" aria-live="polite">
                 Đang kết nối với sổ lưu bút...
             </div>
-
         </form>
 
         <div class="line">✦</div>
-
         <div class="guestbook-list" id="guestbookList">
-            <div class="guestbook-empty">
-                Đang tải những lời nhắn...
-            </div>
+            <div class="guestbook-empty">Đang tải những lời nhắn...</div>
         </div>
-
     </section>
 
     <div class="quote">
@@ -2148,14 +2166,15 @@ h1.gold-text {
 
             <!-- SỐ ĐIỆN THOẠI -->
 
-            <a class="contact-card" href="tel:0862889368">
-
+            <a
+                class="contact-card"
+                href="tel:0862889368"
+            >
                 <div class="contact-icon">☎</div>
 
                 <strong>PHONE</strong>
 
                 <small>0862889368</small>
-
             </a>
 
             <!-- FACEBOOK -->
@@ -2166,13 +2185,11 @@ h1.gold-text {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-
                 <div class="contact-icon">f</div>
 
                 <strong>FACEBOOK</strong>
 
                 <small>Visit my profile</small>
-
             </a>
 
             <!-- INSTAGRAM -->
@@ -2183,7 +2200,6 @@ h1.gold-text {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-
                 <img
                     class="contact-avatar"
                     src="daotronghai.png"
@@ -2194,7 +2210,6 @@ h1.gold-text {
                 <strong>INSTAGRAM</strong>
 
                 <small>Visit Instagram</small>
-
             </a>
 
         </div>
@@ -2210,15 +2225,18 @@ h1.gold-text {
     </div>
 
 </main>
-<!-- FIREBASE SDK -->
+
+<!-- Firebase SDK: dùng để lưu và hiển thị lời nhắn trên mọi thiết bị -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
 
+
 /* =========================
    FIREBASE - TƯỜNG LỜI NHẮN
+   Điền thông tin Firebase vào đây.
 ========================= */
 
 const firebaseConfig = {
@@ -2243,93 +2261,59 @@ function showGuestbookStatus(message) {
 }
 
 function displayGuestbookMessages(snapshot) {
-
     guestbookList.replaceChildren();
 
     if (snapshot.empty) {
-
         const empty = document.createElement("div");
-
         empty.className = "guestbook-empty";
-
-        empty.textContent =
-            "Chưa có lời nhắn nào. Hãy là người đầu tiên viết nhé! ✦";
-
+        empty.textContent = "Chưa có lời nhắn nào. Hãy là người đầu tiên viết nhé! ✦";
         guestbookList.appendChild(empty);
-
         return;
     }
 
     snapshot.forEach((doc) => {
-
         const data = doc.data();
 
         const card = document.createElement("article");
-
         card.className = "guest-message";
 
         const head = document.createElement("div");
-
         head.className = "guest-message-head";
 
         const name = document.createElement("strong");
-
         name.className = "guest-message-name";
-
         name.textContent = data.name || "Một người bạn";
 
         const date = document.createElement("span");
-
         date.className = "guest-message-date";
-
         if (data.createdAt && data.createdAt.toDate) {
-
-            date.textContent =
-                data.createdAt.toDate().toLocaleString("vi-VN");
-
+            date.textContent = data.createdAt.toDate().toLocaleString("vi-VN");
         } else {
-
             date.textContent = "Vừa gửi";
-
         }
 
         const message = document.createElement("p");
-
         message.className = "guest-message-text";
-
         message.textContent = data.message || "";
 
         head.append(name, date);
-
         card.append(head, message);
-
         guestbookList.appendChild(card);
-
     });
 }
 
 function startGuestbook() {
-
     guestbookDB.collection("guestbook_messages")
-
         .orderBy("createdAt", "desc")
-
         .limit(100)
-
         .onSnapshot(
-
             displayGuestbookMessages,
-
             (error) => {
-
                 console.error("Guestbook read error:", error);
-
                 showGuestbookStatus(
                     "Không tải được lời nhắn. Hãy kiểm tra Firestore Rules trong Firebase."
                 );
-
             }
-
         );
 }
 
@@ -2340,139 +2324,78 @@ const firebaseConfigReady =
     firebaseConfig.appId;
 
 if (!firebaseConfigReady) {
-
     showGuestbookStatus(
         "Tường lời nhắn đã được dựng sẵn. Điền Firebase Config để kích hoạt lưu trữ online."
     );
-
     guestbookList.innerHTML =
         '<div class="guestbook-empty">Sổ lưu bút đang chờ kết nối Firebase ✦</div>';
-
 } else {
-
     try {
-
         firebase.initializeApp(firebaseConfig);
-
         guestbookDB = firebase.firestore();
 
         firebase.auth().signInAnonymously()
-
             .then(() => {
-
                 guestbookReady = true;
-
-                showGuestbookStatus(
-                    "Đã kết nối! Mọi người có thể cùng viết lời nhắn ✦"
-                );
-
+                showGuestbookStatus("Đã kết nối! Mọi người có thể cùng viết lời nhắn ✦");
                 startGuestbook();
-
             })
-
             .catch((error) => {
-
                 console.error("Firebase anonymous sign-in error:", error);
-
                 showGuestbookStatus(
                     "Chưa đăng nhập ẩn danh được. Hãy bật Anonymous trong Firebase Authentication."
                 );
-
             });
-
     } catch (error) {
-
         console.error("Firebase initialization error:", error);
-
-        showGuestbookStatus(
-            "Thông tin Firebase chưa chính xác. Hãy kiểm tra lại Config."
-        );
-
+        showGuestbookStatus("Thông tin Firebase chưa chính xác. Hãy kiểm tra lại Config.");
     }
 }
 
-/* GỬI LỜI NHẮN */
-
 guestbookForm.addEventListener("submit", async function(event) {
-
     event.preventDefault();
 
     if (!guestbookReady || !guestbookDB) {
-
-        showGuestbookStatus(
-            "Tường lời nhắn chưa kết nối Firebase nên chưa thể gửi."
-        );
-
+        showGuestbookStatus("Tường lời nhắn chưa kết nối Firebase nên chưa thể gửi.");
         return;
     }
 
-    const name =
-        document.getElementById("guestName").value.trim();
-
-    const message =
-        document.getElementById("guestMessage").value.trim();
+    const name = document.getElementById("guestName").value.trim();
+    const message = document.getElementById("guestMessage").value.trim();
 
     if (!name || !message) {
-
-        showGuestbookStatus(
-            "Hãy nhập cả tên và lời nhắn nhé."
-        );
-
+        showGuestbookStatus("Hãy nhập cả tên và lời nhắn nhé.");
         return;
     }
 
     if (name.length > 40 || message.length > 500) {
-
-        showGuestbookStatus(
-            "Tên tối đa 40 ký tự và lời nhắn tối đa 500 ký tự."
-        );
-
+        showGuestbookStatus("Tên tối đa 40 ký tự và lời nhắn tối đa 500 ký tự.");
         return;
     }
 
     guestbookSubmit.disabled = true;
-
     guestbookSubmit.textContent = "ĐANG GỬI...";
-
     showGuestbookStatus("Đang gửi lời nhắn...");
 
     try {
-
         await guestbookDB.collection("guestbook_messages").add({
-
             name: name,
-
             message: message,
-
             uid: firebase.auth().currentUser.uid,
-
-            createdAt:
-                firebase.firestore.FieldValue.serverTimestamp()
-
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
         });
 
         guestbookForm.reset();
-
-        showGuestbookStatus(
-            "Đã gửi lời nhắn thành công. Cảm ơn bạn! ✦"
-        );
-
+        showGuestbookStatus("Đã gửi lời nhắn thành công. Cảm ơn bạn! ✦");
     } catch (error) {
-
         console.error("Guestbook write error:", error);
-
         showGuestbookStatus(
             "Gửi chưa thành công. Hãy kiểm tra Firestore Rules và kết nối mạng."
         );
-
     } finally {
-
         guestbookSubmit.disabled = false;
-
         guestbookSubmit.textContent = "GỬI LỜI NHẮN ✦";
-
     }
-
 });
 
 /* =========================
@@ -2482,144 +2405,70 @@ guestbookForm.addEventListener("submit", async function(event) {
 const stars = document.getElementById("stars");
 
 for (let i = 0; i < 230; i++) {
-
     const star = document.createElement("div");
-
     star.className = "star";
-
     const size = Math.random() * 2.8 + 0.7;
-
     star.style.width = size + "px";
-
     star.style.height = size + "px";
-
     star.style.left = Math.random() * 100 + "%";
-
     star.style.top = Math.random() * 100 + "%";
-
     star.style.animationDelay = (Math.random() * 4) + "s";
-
-    star.style.setProperty(
-        "--twinkle-speed",
-        (1.2 + Math.random() * 3.8) + "s"
-    );
-
-    star.style.setProperty(
-        "--flare-speed",
-        (2 + Math.random() * 5) + "s"
-    );
-
+    star.style.setProperty("--twinkle-speed", (1.2 + Math.random() * 3.8) + "s");
+    star.style.setProperty("--flare-speed", (2 + Math.random() * 5) + "s");
     stars.appendChild(star);
-
 }
 
 /* =========================
-   SAO BĂNG
+   SAO BĂNG THƯA, CHUYỂN ĐỘNG CÓ NHỊP SÁNG TỰ NHIÊN
 ========================= */
 
 function createShootingStar() {
-
     const layer = document.getElementById("shootingStars");
-
     if (!layer) return;
 
     const star = document.createElement("div");
-
     star.className = "shooting";
 
+    // Chấm sáng bắt đầu ở phía phải, hơi cao; lao chéo xuống trái.
     const length = 145 + Math.random() * 115;
-
-    const startX =
-        window.innerWidth - 8 + Math.random() * 100;
-
-    const startY =
-        Math.random() * (window.innerHeight * 0.48);
-
-    const travelX =
-        -(window.innerWidth * (0.48 + Math.random() * 0.34));
-
-    const travelY =
-        Math.abs(travelX) * (0.34 + Math.random() * 0.18);
-
+    const startX = window.innerWidth - 8 + Math.random() * 100;
+    const startY = Math.random() * (window.innerHeight * 0.48);
+    const travelX = -(window.innerWidth * (0.48 + Math.random() * 0.34));
+    const travelY = Math.abs(travelX) * (0.34 + Math.random() * 0.18);
     const duration = 1.45 + Math.random() * 1.15;
-
     const angle = -(19 + Math.random() * 13);
 
     star.style.left = startX + "px";
-
     star.style.top = startY + "px";
-
     star.style.setProperty("--shoot-length", length + "px");
-
     star.style.setProperty("--shoot-duration", duration + "s");
-
     star.style.setProperty("--shoot-angle", angle + "deg");
-
     star.style.setProperty("--shoot-x", travelX + "px");
-
     star.style.setProperty("--shoot-y", travelY + "px");
-
     [6, 34, 62, 84].forEach(percent => {
-
         const factor = percent / 100;
-
         const suffix = String(percent).padStart(2, "0");
-
-        star.style.setProperty(
-            "--shoot-x-" + suffix,
-            (travelX * factor) + "px"
-        );
-
-        star.style.setProperty(
-            "--shoot-y-" + suffix,
-            (travelY * factor) + "px"
-        );
-
+        star.style.setProperty("--shoot-x-" + suffix, (travelX * factor) + "px");
+        star.style.setProperty("--shoot-y-" + suffix, (travelY * factor) + "px");
     });
-
-    star.style.setProperty(
-        "--shoot-thickness",
-        (1.1 + Math.random() * 0.7) + "px"
-    );
-
-    star.style.setProperty(
-        "--shoot-head",
-        (2.5 + Math.random() * 2) + "px"
-    );
+    star.style.setProperty("--shoot-thickness", (1.1 + Math.random() * 0.7) + "px");
+    star.style.setProperty("--shoot-head", (2.5 + Math.random() * 2) + "px");
 
     layer.appendChild(star);
-
-    window.setTimeout(
-        () => star.remove(),
-        duration * 1000 + 150
-    );
-
+    window.setTimeout(() => star.remove(), duration * 1000 + 150);
 }
 
+// Một sao băng mỗi 1.8–3.1 giây; đôi lúc có một vệt thứ hai cách xa.
 function scheduleShootingStar() {
-
     createShootingStar();
-
-    window.setTimeout(
-        scheduleShootingStar,
-        1800 + Math.random() * 1300
-    );
-
+    window.setTimeout(scheduleShootingStar, 1800 + Math.random() * 1300);
 }
-
 scheduleShootingStar();
 
 setInterval(() => {
-
     if (Math.random() > 0.72) {
-
-        setTimeout(
-            createShootingStar,
-            520 + Math.random() * 500
-        );
-
+        setTimeout(createShootingStar, 520 + Math.random() * 500);
     }
-
 }, 8500);
 
 /* =========================
@@ -2644,7 +2493,6 @@ document.addEventListener("mousemove", function(e) {
         symbols[Math.floor(Math.random() * symbols.length)];
 
     dust.style.left = e.clientX + "px";
-
     dust.style.top = e.clientY + "px";
 
     dust.style.fontSize =
@@ -2653,7 +2501,6 @@ document.addEventListener("mousemove", function(e) {
     document.getElementById("cursorDust").appendChild(dust);
 
     setTimeout(() => dust.remove(), 1000);
-
 });
 
 /* =========================
@@ -2662,115 +2509,61 @@ document.addEventListener("mousemove", function(e) {
 
 const face = document.getElementById("floatingFace");
 
+/* Ảnh di chuyển liên tục theo quỹ đạo rộng khắp màn hình */
 let faceAnimationStarted = false;
-
 let faceStartTime = 0;
 
 function animateFace(timestamp) {
-
     if (!face) return;
 
     if (!faceAnimationStarted) {
-
         faceAnimationStarted = true;
-
         faceStartTime = timestamp;
-
     }
 
     const elapsed = (timestamp - faceStartTime) / 1000;
-
-    const maxX = Math.max(
-        8,
-        window.innerWidth - face.offsetWidth - 12
-    );
-
-    const maxY = Math.max(
-        8,
-        window.innerHeight - face.offsetHeight - 12
-    );
-
+    const maxX = Math.max(8, window.innerWidth - face.offsetWidth - 12);
+    const maxY = Math.max(8, window.innerHeight - face.offsetHeight - 12);
     const centerX = maxX / 2;
-
     const centerY = maxY / 2;
-
-    const radiusX = Math.max(
-        0,
-        (maxX - face.offsetWidth * 0.25) / 2
-    );
-
-    const radiusY = Math.max(
-        0,
-        (maxY - face.offsetHeight * 0.25) / 2
-    );
-
+    const radiusX = Math.max(0, (maxX - face.offsetWidth * 0.25) / 2);
+    const radiusY = Math.max(0, (maxY - face.offsetHeight * 0.25) / 2);
     const angle = elapsed * 0.24;
 
-    const x =
-        centerX +
-        Math.cos(angle) * radiusX * 0.91 +
-        Math.sin(angle * 0.47) * radiusX * 0.08;
-
-    const y =
-        centerY +
-        Math.sin(angle) * radiusY * 0.88 +
-        Math.cos(angle * 0.63) * radiusY * 0.09;
-
+    /* Quỹ đạo elip biến thiên nhẹ, tạo cảm giác bay lượn tự nhiên */
+    const x = centerX + Math.cos(angle) * radiusX * 0.91
+        + Math.sin(angle * 0.47) * radiusX * 0.08;
+    const y = centerY + Math.sin(angle) * radiusY * 0.88
+        + Math.cos(angle * 0.63) * radiusY * 0.09;
     const tilt = Math.sin(angle * 1.15) * 10;
-
     const bob = Math.sin(elapsed * 1.7) * 5;
 
-    face.style.left =
-        Math.max(6, Math.min(maxX, x)) + "px";
-
-    face.style.top =
-        Math.max(6, Math.min(maxY, y + bob)) + "px";
-
-    face.style.transform =
-        `rotate(${tilt}deg) scale(${1 + Math.sin(elapsed * 1.2) * 0.025})`;
+    face.style.left = Math.max(6, Math.min(maxX, x)) + "px";
+    face.style.top = Math.max(6, Math.min(maxY, y + bob)) + "px";
+    face.style.transform = `rotate(${tilt}deg) scale(${1 + Math.sin(elapsed * 1.2) * 0.025})`;
 
     requestAnimationFrame(animateFace);
-
 }
 
 if (face) {
-
     face.addEventListener("load", () => {
-
         face.classList.remove("image-missing");
-
         face.alt = "Đào Trọng Hải";
-
-        if (!faceAnimationStarted) {
-            requestAnimationFrame(animateFace);
-        }
-
+        if (!faceAnimationStarted) requestAnimationFrame(animateFace);
     });
-
     face.addEventListener("error", () => {
-
+        /* Không ẩn ảnh lỗi: giữ biểu tượng ảnh hỏng để nó vẫn bay quanh màn hình */
         face.dataset.failed = "true";
-
         face.classList.add("image-missing");
-
         face.alt = "Ảnh chưa được thêm";
-
-        if (!faceAnimationStarted) {
-            requestAnimationFrame(animateFace);
-        }
-
-        console.warn(
-            "Chưa tìm thấy daotronghai.png. Biểu tượng ảnh lỗi vẫn sẽ bay; thêm ảnh vào cùng thư mục rồi tải lại trang."
-        );
-
+        if (!faceAnimationStarted) requestAnimationFrame(animateFace);
+        console.warn("Chưa tìm thấy daotronghai.png. Biểu tượng ảnh lỗi vẫn sẽ bay; thêm ảnh vào cùng thư mục rồi tải lại trang.");
     });
-
+    /* Khởi chạy kể cả khi ảnh chưa tải được */
     requestAnimationFrame(animateFace);
-
     window.addEventListener("resize", () => {
-        /* Tự tính lại kích thước màn hình */
+        /* Vòng lặp tự tính lại kích thước màn hình ở mỗi khung hình */
     });
-
 }
 
 /* =========================
@@ -2786,17 +2579,10 @@ function toggleMusic() {
     if (music.paused) {
 
         music.play().then(() => {
-
             button.innerHTML = "♫ MUSIC ON";
-
         }).catch(() => {
-
             button.innerHTML = "♫ MUSIC OFF";
-
-            alert(
-                "Không phát được nhạc. Hãy kiểm tra file music.mp3 nhé!"
-            );
-
+            alert("Không phát được nhạc. Hãy kiểm tra file music.mp3 nhé!");
         });
 
     } else {
@@ -2804,9 +2590,7 @@ function toggleMusic() {
         music.pause();
 
         button.innerHTML = "♫ MUSIC OFF";
-
     }
-
 }
 
 /* =========================
@@ -2833,11 +2617,9 @@ function showDoctorIntro() {
 
         icon.innerHTML = symbol;
 
-        icon.style.left =
-            (10 + Math.random() * 80) + "%";
+        icon.style.left = (10 + Math.random() * 80) + "%";
 
-        icon.style.top =
-            (15 + Math.random() * 70) + "%";
+        icon.style.top = (15 + Math.random() * 70) + "%";
 
         icon.style.setProperty(
             "--dx",
@@ -2849,13 +2631,11 @@ function showDoctorIntro() {
             (-Math.random() * 650 - 100) + "px"
         );
 
-        icon.style.animationDelay =
-            (index * 0.06) + "s";
+        icon.style.animationDelay = (index * 0.06) + "s";
 
         intro.appendChild(icon);
 
         setTimeout(() => icon.remove(), 3500);
-
     });
 
     setTimeout(() => {
@@ -2871,7 +2651,6 @@ function showDoctorIntro() {
         window.scrollTo(0, 0);
 
     }, 2900);
-
 }
 
 /* =========================
@@ -2886,30 +2665,60 @@ function openInvitation() {
 
     invitationOpened = true;
 
-    const envelope = document.getElementById("envelope");
+    const paper = document.getElementById("paperSheet");
+    paper.classList.add("flying");
 
-    envelope.classList.add("open");
-
+    // Phát nhạc ngay sau thao tác chạm của người xem
     music.play().then(() => {
-
-        document.getElementById("musicButton").innerHTML =
-            "♫ MUSIC ON";
-
+        document.getElementById("musicButton").innerHTML = "♫ MUSIC ON";
     }).catch(() => {
-
-        document.getElementById("musicButton").innerHTML =
-            "♫ MUSIC OFF";
-
+        document.getElementById("musicButton").innerHTML = "♫ MUSIC OFF";
     });
 
+    // Sau khoảng 3 giây bay lượn, mảnh giấy lóe sáng và bung thành bụi sao
     setTimeout(() => {
+        const screen = document.getElementById("envelopeScreen");
+        const paperRect = paper.getBoundingClientRect();
+        const burstLeft = paperRect.left + paperRect.width / 2;
+        const burstTop = paperRect.top + paperRect.height / 2;
+        const flash = document.createElement("div");
+        flash.className = "paper-burst-flash";
+        flash.style.left = burstLeft + "px";
+        flash.style.top = burstTop + "px";
+        const shockwave = document.createElement("div");
+        shockwave.className = "paper-burst-ring";
+        shockwave.style.left = burstLeft + "px";
+        shockwave.style.top = burstTop + "px";
+        screen.appendChild(shockwave);
+        screen.appendChild(flash);
 
-        document.getElementById("envelopeScreen").style.display = "none";
+        // Vụ nổ ánh sáng kiểu điện ảnh: lóe trắng, sóng sáng lan rộng và tia vàng tỏa đều.
+        for (let i = 0; i < 88; i++) {
+            const piece = document.createElement("i");
+            piece.className = "paper-burst-piece";
+            piece.style.left = burstLeft + "px";
+            piece.style.top = burstTop + "px";
+            const angle = (Math.PI * 2 * i / 88) + (Math.random() - .5) * .12;
+            const distance = 150 + Math.random() * 390;
+            piece.style.setProperty("--burst-x", (Math.cos(angle) * distance) + "px");
+            piece.style.setProperty("--burst-y", (Math.sin(angle) * distance) + "px");
+            piece.style.setProperty("--piece-angle", (angle * 180 / Math.PI + 90) + "deg");
+            piece.style.setProperty("--piece-width", (2 + Math.random() * 3) + "px");
+            piece.style.setProperty("--piece-height", (12 + Math.random() * 30) + "px");
+            piece.style.setProperty("--piece-duration", (.8 + Math.random() * .55) + "s");
+            screen.appendChild(piece);
+            setTimeout(() => piece.remove(), 1500);
+        }
 
+        // Cho ten bac si xuat hien ngay trong khoanh khac bung no,
+        // khong doi vu no tan het moi hien chu.
         showDoctorIntro();
-
-    }, 850);
-
+        setTimeout(() => {
+            screen.style.display = "none";
+            flash.remove();
+            shockwave.remove();
+        }, 950);
+    }, 3000);
 }
 
 /* =========================
@@ -2926,21 +2735,13 @@ function updateCountdown() {
 
     if (distance < 0) distance = 0;
 
-    let days = Math.floor(
-        distance / (1000 * 60 * 60 * 24)
-    );
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-    let hours = Math.floor(
-        (distance / (1000 * 60 * 60)) % 24
-    );
+    let hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
 
-    let minutes = Math.floor(
-        (distance / (1000 * 60)) % 60
-    );
+    let minutes = Math.floor((distance / (1000 * 60)) % 60);
 
-    let seconds = Math.floor(
-        (distance / 1000) % 60
-    );
+    let seconds = Math.floor((distance / 1000) % 60);
 
     document.getElementById("days").innerText =
         String(days).padStart(2, "0");
@@ -2953,7 +2754,6 @@ function updateCountdown() {
 
     document.getElementById("seconds").innerText =
         String(seconds).padStart(2, "0");
-
 }
 
 updateCountdown();
@@ -2975,7 +2775,6 @@ document.getElementById("rsvpForm").addEventListener(
         );
 
         this.reset();
-
     }
 );
 
