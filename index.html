@@ -1883,6 +1883,94 @@ h1.gold-text {
     100% { opacity:1; transform:scale(1); filter:blur(0); }
 }
 
+
+
+/* =========================
+   NAVY & CHAMPAGNE — KHUNG TRÍCH DẪN / CÁC Ô NỘI DUNG
+   Lấy cảm hứng từ mẫu khung xanh navy viền vàng người dùng gửi
+========================= */
+:root {
+    --memory-navy: #08142f;
+    --memory-navy-deep: #050d22;
+    --memory-gold: #d8bd83;
+    --memory-gold-soft: rgba(224, 201, 151, .48);
+}
+.quote {
+    position: relative;
+    max-width: 760px;
+    margin: 30px auto;
+    padding: 25px clamp(18px, 4vw, 42px);
+    border: 1px solid var(--memory-gold);
+    border-radius: 23px;
+    outline: 1px solid rgba(224,201,151,.34);
+    outline-offset: 5px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(77,103,155,.20), transparent 65%),
+        linear-gradient(145deg, #101d3d 0%, var(--memory-navy) 52%, var(--memory-navy-deep) 100%);
+    color: #eee6d5;
+    box-shadow:
+        0 16px 42px rgba(0,0,0,.38),
+        0 0 28px rgba(190,161,105,.10),
+        inset 0 1px 0 rgba(255,255,255,.10);
+    line-height: 1.9;
+    text-align: center;
+}
+.quote::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(224,201,151,.22);
+    border-radius: 17px;
+    pointer-events: none;
+}
+.countdown,
+.invitation-box,
+.guestbook-section,
+.contact-section {
+    border: 1px solid var(--memory-gold-soft);
+    border-radius: 22px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(77,103,155,.17), transparent 68%),
+        linear-gradient(145deg, #101d3b 0%, #09152f 58%, #050d20 100%);
+    box-shadow:
+        0 18px 48px rgba(0,0,0,.34),
+        0 0 25px rgba(190,161,105,.08),
+        inset 0 1px 0 rgba(255,255,255,.08);
+}
+.countdown::before,
+.invitation-box::before,
+.guestbook-section::before,
+.contact-section::before {
+    inset: 7px;
+    border: 1px solid rgba(224,201,151,.20);
+    border-radius: 15px;
+}
+.contact-card,
+.guest-message {
+    border: 1px solid rgba(216,189,131,.42);
+    border-radius: 15px;
+    background: linear-gradient(145deg, rgba(22,39,75,.92), rgba(5,13,32,.96));
+}
+.contact-card:hover {
+    background: linear-gradient(145deg, rgba(35,56,96,.96), rgba(8,18,42,.98));
+}
+input, textarea {
+    background: rgba(4,11,27,.88);
+    border-color: rgba(216,189,131,.48);
+}
+.music-button {
+    background: linear-gradient(145deg, #142344, #071127);
+    border-radius: 30px;
+}
+@media (max-width: 600px) {
+    .quote {
+        padding: 22px 17px;
+        border-radius: 18px;
+        outline-offset: 3px;
+    }
+    .quote::before { border-radius: 12px; }
+}
+
 </style>
 </head>
 
@@ -1893,17 +1981,17 @@ h1.gold-text {
 <div id="shootingStars"></div>
 <div id="cursorDust"></div>
 
-<!-- ẢNH HẢI: FILE daotronghai.png -->
+<!-- ẢNH HẢI: FILE tronghai.png -->
 <img
-    src="daotronghai.png"
+    src="tronghai.png"
     class="floating-face"
     id="floatingFace"
     alt="Ảnh Đào Trọng Hải chưa được thêm"
 >
 
-<!-- NHẠC NỀN: FILE music.mp3 -->
+<!-- NHẠC NỀN: FILE thanhxuan.mp4 -->
 <audio id="backgroundMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
+    <source src="thanhxuan.mp4" type="audio/mp4">
 </audio>
 
 <button class="music-button" id="musicButton" onclick="toggleMusic()">
@@ -2111,7 +2199,7 @@ h1.gold-text {
             >
                 <img
                     class="contact-avatar"
-                    src="daotronghai.png"
+                    src="tronghai.png"
                     alt="Ảnh đại diện Instagram"
                     onerror="this.style.display='none'"
                 >
@@ -2555,7 +2643,7 @@ if (face) {
         face.classList.add("image-missing");
         face.alt = "Ảnh chưa được thêm";
         if (!faceAnimationStarted) requestAnimationFrame(animateFace);
-        console.warn("Chưa tìm thấy daotronghai.png. Biểu tượng ảnh lỗi vẫn sẽ bay; thêm ảnh vào cùng thư mục rồi tải lại trang.");
+        console.warn("Chưa tìm thấy tronghai.png. Biểu tượng ảnh lỗi vẫn sẽ bay; thêm ảnh vào cùng thư mục rồi tải lại trang.");
     });
     /* Khởi chạy kể cả khi ảnh chưa tải được */
     requestAnimationFrame(animateFace);
@@ -2580,7 +2668,7 @@ function toggleMusic() {
             button.innerHTML = "♫ MUSIC ON";
         }).catch(() => {
             button.innerHTML = "♫ MUSIC OFF";
-            alert("Không phát được nhạc. Hãy kiểm tra file music.mp3 nhé!");
+            alert("Không phát được nhạc. Hãy kiểm tra file thanhxuan.mp4 nhé!");
         });
 
     } else {
